@@ -1,0 +1,99 @@
+<!-- TELA DE EDIÇÃO -->
+<!DOCTYPE html>
+<html ng-app="listaUsuarioModulo">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDIÇÃO- aplicação em Angular JS</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">   
+
+    <!-- angular -->
+    <script src="../../lib/angular.js"></script>  
+    <script src="../TelaDeEdicao/edicaoConttroler.js"></script>
+
+</head>
+
+<!--EDIÇÃO -->
+
+<body ng-controller="edicaoController">
+    <!-- titulo -->
+    <div class="titulo-cadastroDeUsuarios">
+        <h4>{{titulo}}</h4>
+    </div>
+
+
+
+    <main>       
+        <form name="cadastraPessoa" class="cadastraPessoa container">
+                        
+                <div class="row g-3 col-sm-10">
+                    <div class="col">
+                        <label for="text" class="form-label">Nome</label>
+                      <input type="text" class="form-control" placeholder="" ng-model="pessoaSelecionada.nome" aria-label="">
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label">Idade</label>
+                      <input type="text" class="form-control" placeholder="" ng-model="pessoaSelecionada.idade" aria-label="">
+                    </div>
+                </div>
+                <div class="row g-3 col-sm-10">
+                    <div class="col">
+                        <label for="text" class="form-label">Profissão</label>
+                      <input type="text" class="form-control" placeholder=""ng-model="pessoaSelecionada.profissao"  aria-label="">
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label">Cidade de Nascimento </label>
+                      <input type="text" class="form-control" placeholder="" ng-model="pessoaSelecionada.cidade" aria-label="">
+                    </div>
+                </div>
+                <div class="row g-3 col-sm-10">
+                    <div class="col">
+                        <label for="text" class="form-label">Peso</label>
+                      <input type="text" class="form-control" placeholder=""ng-model="pessoaSelecionada.peso" aria-label="">
+                    </div>
+                    <div class="col">
+                        <label for="text" class="form-label">Aniversário</label>
+                      <input type="text" class="form-control" placeholder="" ng-model="pessoaSelecionada.aniversario" aria-label="Last name">
+                    </div>
+                </div>
+                <div class="button-cadastro">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary me-md-2" type="button">Voltar</button>
+                        <button ng-click=selecionaPessoa() class="btn btn-primary" type="button">Salvar</button>
+                    </div>
+
+                </div>         
+
+
+        </form>
+
+</main>
+
+
+
+    
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </form>
+

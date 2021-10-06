@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aplicação em Angular JS</title>
+    <title> PAGINA INICIAL- aplicação em Angular JS</title>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -18,12 +18,15 @@
     <!-- angular -->
     <script src="../../lib/angular.js"></script>
     <script src="./indexController.js"></script>
+ 
 
 </head>
 
+<!-- PAGINA INICIAL -->
+
 <body ng-controller="indexController">
     <!-- titulo -->
-    <div class="titulo-listaDeUsuarios">
+    <div class="titulo-cadastroDeUsuarios">
         <h4>{{titulo}}</h4>
     </div>
     <!-- campo de busca -->
@@ -60,13 +63,14 @@
                 <td>{{pessoa.nome}}</td>
                 <td>{{pessoa.idade}}</td>
                 <td>{{pessoa.profissao}}</td>
-                <td>{{pessoa.cidadeDeNascimento}}</td>
+                <td>{{pessoa.cidade}}</td>
                 <td>{{pessoa.peso}}</td>
                 <td>{{pessoa.aniversario}}</td>
                 <!-- botao editar e apagar -->
                 <td class="table-overflow">
-                    <input type="submit" value="editar">
-                    <input type="submit" value="apagar">                                                      
+                    <button ng-click="(mostraPessoa)" type="submit">editar</button>
+                    <button>apagar</button>
+                                                                    
                     
                 </td> 
                   
@@ -77,14 +81,11 @@
 
         </tbody>
     </table>
-    <main>
 
+  
+<!--TELA DE CADASTRO -->
+<!-- <div ng-include src="'../telaDeCadastro/cadastro.html'"></div> -->
 
-
-
-
-
-    </main>
 
 
 
