@@ -1,0 +1,27 @@
+{
+  "pessoa": [
+    {
+      "nome":"Flavia",
+      "idade":10,
+      "profissao": "Dev",
+      "cidadeDeNascimento":"São Paulo",
+      "peso":62,
+      "aniversario":"Abril"       
+    },
+
+    {
+      "nome":"Geraldo",
+      "idade":10,
+      "profissao": "Dev",
+      "cidadeDeNascimento":"São Paulo",
+      "peso":62,
+      "aniversario":"Abril"       
+    }
+    
+    
+
+    
+
+  ]
+ 
+}
