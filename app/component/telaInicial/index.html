@@ -20,7 +20,7 @@
     <script src="../../lib/angular.js"></script>
     <script src="../../node_modules/angular-route/angular-route.js"></script>
     <script src="./indexController.js"></script>
-    
+
 
 
 </head>
@@ -28,8 +28,9 @@
 <!-- PAGINA INICIAL -->
 
 <div ng-view></div>
-<body ng-controller= "indexController" >
-    
+
+<body ng-controller="indexController">
+
     <!-- titulo -->
     <div class="titulo-cadastroDeUsuarios">
         <h4>{{titulo}}</h4>
@@ -43,7 +44,7 @@
     <!-- botão de edição -->
     <div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button ng-click= "direcionaTelaCadastro()" class="btn btn-primary me-md-2" type="button">Cadastrar</button>
+            <button ng-click="direcionaTelaCadastro()" class="btn btn-primary me-md-2" type="button">Cadastrar</button>
 
         </div>
 
@@ -73,12 +74,15 @@
                 <td>{{pessoa.peso}}</td>
                 <td>{{pessoa.aniversario}}</td>
                 <!-- botao editar e apagar -->
-                <td>                            
+                <td>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <!-- <button ng-click="mostraPessoa(pessoa,$index)" class="btn btn-primary me-md-2" type="button">editar</button> -->
-          
-                    <a href="http://127.0.0.1:5500/app/component/TelaDeEdicao/edicao.html"><button ng-click="mostraPessoa(pessoa,$index)" class="btn btn-primary me-md-2" type="button">editar</button></a>
-                    <button ng-click="informaModalExcluir()" type="button" data-bs-dismiss="modal" class="btn btn-primary">apagar</button>
+                        <!-- <button ng-click="mostraPessoa(pessoa,$index)" class="btn btn-primary me-md-2" type="button">editar</button> -->
+
+                        <a href="http://127.0.0.1:5500/app/component/TelaDeEdicao/edicao.html"><button
+                                ng-click="mostraPessoa(pessoa,$index)" class="btn btn-primary me-md-2"
+                                type="button">editar</button></a>
+                        <button ng-click="informaModalExcluir()" type="button" data-bs-dismiss="modal"
+                            class="btn btn-primary">apagar</button>
                     </div>
                     <!--MODAL EXCLUIR -->
                     <div ng-include="'modal-excluir.html'"></div>

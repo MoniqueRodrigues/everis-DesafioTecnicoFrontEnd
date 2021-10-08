@@ -14,11 +14,6 @@ angular.module("soVamu", ["ngRoute"])
         // }
 
 
-
-
-
-
-
         // CADASTRA A PESSOA NO FORMULÁRIO E ENVIA PARA O BANCO DE DADOS: 
 
 
@@ -32,8 +27,6 @@ angular.module("soVamu", ["ngRoute"])
                 ).then(function (response) {
                     $scope.listaPessoas.push(response.data);
                     window.location.replace('http://127.0.0.1:5500/app/component/TelaInicial/index.html')
-
-
                 });
             } else {
                 console.error("formulario incorreto")
