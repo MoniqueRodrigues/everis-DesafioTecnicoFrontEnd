@@ -13,6 +13,10 @@ angular.module("soVamu", ["ngRoute"])
         //     "aniversario":""
         // }
 
+        //  //DIRECIONAR PARA A TELA DE INICIAL:
+        $scope.direcionaTelaInicial = function () {
+            window.location.replace('http://127.0.0.1:5500/app/component/TelaInicial/index.html')
+        };
 
         // CADASTRA A PESSOA NO FORMULÁRIO E ENVIA PARA O BANCO DE DADOS: 
 
@@ -26,7 +30,9 @@ angular.module("soVamu", ["ngRoute"])
                     JSON.stringify($scope.pessoa)
                 ).then(function (response) {
                     $scope.listaPessoas.push(response.data);
-                    window.location.replace('http://127.0.0.1:5500/app/component/TelaInicial/index.html')
+                    $scope.direcionaTelaInicial();
+                   
+
                 });
             } else {
                 console.error("formulario incorreto")

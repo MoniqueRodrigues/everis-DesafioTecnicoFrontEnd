@@ -8,6 +8,10 @@ angular.module("soVamu", ["ngRoute"])
         // console.log(JSON.parse(pessoa));
 
 
+        //  //DIRECIONAR PARA A TELA DE INICIAL:
+        $scope.direcionaTelaInicial = function () {
+            window.location.replace('http://127.0.0.1:5500/app/component/TelaInicial/index.html')
+        };
 
 
         // EDITA PRODUTO NA TELA DE EDIÇÃO:
@@ -31,9 +35,7 @@ angular.module("soVamu", ["ngRoute"])
                 localStorage.setItem("pessoa", JSON.stringify(pessoa))
                 // $scope.pessoa = response.data;
                 // limpaForm();
-
-
-
+                $scope.direcionaTelaInicial();
 
             }).catch(function (err) {
                 console.log("erro ao editar os dados", err)
