@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="listaUsuarioModulo">
+<html ng-app="soVamu">
 
 <head>
     <meta charset="UTF-8">
@@ -7,24 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> PAGINA INICIAL- aplicação em Angular JS</title>
     <!-- bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
     <!-- css -->
-    <link rel="stylesheet" href="./style.css">   
+    <link rel="stylesheet" href="./style.css">
 
     <!-- angular -->
     <script src="../../lib/angular.js"></script>
+    <script src="../../node_modules/angular-route/angular-route.js"></script>
     <script src="./indexController.js"></script>
- 
+    
+
 
 </head>
 
 <!-- PAGINA INICIAL -->
 
-<body ng-controller="indexController">
+<div ng-view></div>
+<body ng-controller= "indexController" >
+    
     <!-- titulo -->
     <div class="titulo-cadastroDeUsuarios">
         <h4>{{titulo}}</h4>
@@ -32,15 +37,15 @@
     <!-- campo de busca -->
     <div class="campo-busca">
         <input type="text" ng-model="busca">
-       
+
     </div>
 
     <!-- botão de edição -->
     <div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button">Cadastrar</button>
-          
-          </div>
+            <button ng-click= "direcionaTelaCadastro()" class="btn btn-primary me-md-2" type="button">Cadastrar</button>
+
+        </div>
 
     </div>
     <!-- tabela -->
@@ -54,6 +59,7 @@
                 <th scope="col">Cidade de Nascimento</th>
                 <th scope="col">Peso</th>
                 <th scope="col">Aniversário</th>
+                <th scope="col"></th>
 
             </tr>
         </thead>
@@ -67,27 +73,20 @@
                 <td>{{pessoa.peso}}</td>
                 <td>{{pessoa.aniversario}}</td>
                 <!-- botao editar e apagar -->
-                <td class="table-overflow">
-                    <button ng-click="(mostraPessoa)" type="submit">editar</button>
-                    <button>apagar</button>
-                                                                    
-                    
-                </td> 
-                  
-                   
-                   
-               
+                <td>                            
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <!-- <button ng-click="mostraPessoa(pessoa,$index)" class="btn btn-primary me-md-2" type="button">editar</button> -->
+          
+                    <a href="http://127.0.0.1:5500/app/component/TelaDeEdicao/edicao.html"><button ng-click="mostraPessoa(pessoa,$index)" class="btn btn-primary me-md-2" type="button">editar</button></a>
+                    <button ng-click="informaModalExcluir()" type="button" data-bs-dismiss="modal" class="btn btn-primary">apagar</button>
+                    </div>
+                    <!--MODAL EXCLUIR -->
+                    <div ng-include="'modal-excluir.html'"></div>
+                </td>
             </tr>
 
         </tbody>
     </table>
-
-  
-<!--TELA DE CADASTRO -->
-<!-- <div ng-include src="'../telaDeCadastro/cadastro.html'"></div> -->
-
-
-
 
 
 </body>

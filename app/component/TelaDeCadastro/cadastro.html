@@ -1,7 +1,7 @@
 <!-- TELA DE CADASTRO -->
 
 <!DOCTYPE html>
-<html ng-app="listaUsuarioModulo">
+<html ng-app="soVamu">
 
 <head>
     <meta charset="UTF-8">
@@ -19,8 +19,9 @@
 
     <!-- angular -->
     <script src="../../lib/angular.js"></script>
+    <script src="../../node_modules/angular-route/angular-route.js"></script>
     <script src="../telaDecadastro/cadastroController.js"></script>
-    
+
 
 </head>
 
@@ -30,90 +31,63 @@
     <!-- titulo -->
     <div class="titulo-cadastroDeUsuarios">
         <h4>{{titulo}}</h4>
-       
+
     </div>
 
 
 
-    <main>       
-            <form  name="cadastraPessoa" class="cadastraPessoa container">
-                            
-                    <div class="row g-3 col-sm-10">
-                        <div class="col">
-                            <label for="text" class="form-label">Nome</label>
-                          <input type="text" class="form-control" placeholder="" ng-model="pessoa.nome" aria-label="">
-                        </div>
-                        <div class="col">
-                            <label for="text" class="form-label">Idade</label>
-                          <input type="text" class="form-control" placeholder="" ng-model="pessoa.idade" aria-label="">
-                        </div>
-                    </div>
-                    <div class="row g-3 col-sm-10">
-                        <div class="col">
-                            <label for="text" class="form-label">Profissão</label>
-                          <input type="text" class="form-control" placeholder=""ng-model="pessoa.profissao"  aria-label="">
-                        </div>
-                        <div class="col">
-                            <label for="text" class="form-label">Cidade de Nascimento </label>
-                          <input type="text" class="form-control" placeholder="" ng-model="pessoa.cidade" aria-label="">
-                        </div>
-                    </div>
-                    <div class="row g-3 col-sm-10">
-                        <div class="col">
-                            <label for="text" class="form-label">Peso</label>
-                          <input type="text" class="form-control" placeholder=""ng-model="pessoa.peso" aria-label="">
-                        </div>
-                        <div class="col">
-                            <label for="text" class="form-label">Aniversário</label>
-                          <input type="text" class="form-control" placeholder="" ng-model="pessoa.aniversario" aria-label="Last name">
-                        </div>
-                    </div>
-                    <div class="button-cadastro">
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-primary me-md-2" type="button">Voltar</button>
-                            <button ng-click="cadastra_pessoa()" class="btn btn-primary" type="button">Salvar</button>
-                        </div>
+    <main>
+        <form name="cadastraPessoa" class="cadastraPessoa container">
+            <div class="row g-3 col-sm-10">
+                <div class="col">
+                    <label for="text" class="form-label">Nome</label>
+                    <input type="text" minlength="3" ng-required="true" class="form-control" placeholder="" name="text"
+                        pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" ng-model="pessoa.nome" aria-label="">
+                </div>
+                <div class="col">
+                    <label for="number" class="form-label">Idade</label>
+                    <input type="number" min="2" pattern="[0-9]+$" ng-required="true" class="form-control" placeholder="" ng-model="pessoa.idade"
+                        aria-label="">
+                </div>
+            </div>
+            <div class="row g-3 col-sm-10">
+                <div class="col">
+                    <label for="text" class="form-label">Profissão</label>
+                    <input type="text" ng-required="true" class="form-control" placeholder=""
+                        ng-model="pessoa.profissao" aria-label="" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$">
+                </div>
+                <div class="col">
+                    <label for="text" class="form-label">Cidade de Nascimento </label>
+                    <input type="text" ng-required="true" class="form-control"pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" placeholder="" ng-model="pessoa.cidade"
+                        aria-label="">
+                </div>
+            </div>
+            <div class="row g-3 col-sm-10">
+                <div class="col">
+                    <label for="text" class="form-label">Peso</label>
+                    <input type="text" ng-required="true" ng-pattern="/^[0-9]{1,7}$/" class="form-control" placeholder="" ng-model="pessoa.peso"
+                        aria-label="">
+                </div>
+                <div class="col">
+                    <label for="dia" class="form-label">Aniversário</label>
+                    <input type="date" ng-required="true" name= dia class="form-control" placeholder=""pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                        ng-model="pessoa.aniversario" aria-label="">
+                </div>
+            </div>
+            <div class="button-cadastro">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button ng-click="" type="submit" class="btn btn-primary me-md-2" type="button">Voltar</button>
+                    <button ng-click="cadastra_pessoa(cadastraPessoa.$valid)" type="submit" class="btn btn-primary"                    type="button">Salvar</button>
+                </div>
 
-                    </div>         
+            </div>
 
 
-            </form>
+        </form>
 
     </main>
 
 
-  
-        
+
+
 </body>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
