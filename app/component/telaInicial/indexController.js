@@ -4,20 +4,15 @@ angular.module("soVamu", ["ngRoute"])
         $scope.titulo = "Só Vamu Tech!";
         $scope.listaPessoas = [];
 
-
-
-
-        //DIRECIONAR PARA A TELA DE EDITAR:
-        $scope.direcionaTelaEditar = function () {
-            window.location.replace('http://127.0.0.1:5500/app/component/TelaDeEdicao/edicao.html')
-        };
+        // //DIRECIONAR PARA A TELA DE EDITAR:
+        // $scope.direcionaTelaEditar = function () {
+        //     window.location.replace('http://127.0.0.1:5500/app/component/TelaDeEdicao/edicao.html')
+        // };
 
         //DIRECIONAR PARA A TELA DE CADASTRO:
         $scope.direcionaTelaCadastro = function () {
             window.location.replace('http://127.0.0.1:5500/app/component/TelaDeCadastro/cadastro.html')
         };
-
-
 
         //  //DIRECIONAR PARA A TELA DE INICIAL:
         $scope.direcionaTelaInicial = function () {

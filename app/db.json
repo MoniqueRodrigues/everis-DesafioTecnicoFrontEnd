@@ -1,22 +1,27 @@
 {
   "pessoa": [
     {
-      "nome": "www",
-      "idade": 24,
-      "profissao": "a",
-      "cidade": "a",
-      "peso": "24",
-      "aniversario": "2021-02-20T03:00:00.000Z",
+      "idade": 4,
+      "profissao": "mmm",
+      "cidade": {
+        "cidade": "Rio de Janeiro",
+        "$$hashKey": "object:4"
+      },
+      "aniversario": "2211-02-01T03:00:00.000Z",
+      "nome": "mmm",
+      "peso": "40000",
       "id": 1
+    }
+  ],
+  "cidade": [
+    {
+      "cidade": "São Paulo"
     },
     {
-      "nome": "ddd",
-      "idade": 24,
-      "profissao": "c",
-      "cidade": "c",
-      "peso": "23",
-      "aniversario": "2021-02-23T03:00:00.000Z",
-      "id": 2
+      "cidade": "Rio de Janeiro"
+    },
+    {
+      "cidade": "Brasilia"
     }
   ]
 }

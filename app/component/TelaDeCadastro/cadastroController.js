@@ -4,23 +4,20 @@ angular.module("soVamu", ["ngRoute"])
         $scope.titulo = "Só Vamu Tech!";
         $scope.listaPessoas = [];
 
-        // $scope.pessoa = {
-        //     "nome":"",
-        //     "idade":0,
-        //     "profissao":"",
-        //     "cidade":"",
-        //     "peso": 0,
-        //     "aniversario":""
-        // }
+        //TELA DE CADASTRO//
+
+        //PEGAR OBJETO CIDADES NO BANCO DE DADOS:
+        $http.get("http://localhost:3000/cidade")
+            .then(function (response) {
+                console.log('retorno', response)
+                $scope.cidades = response.data;
+            });
 
         //  //DIRECIONAR PARA A TELA DE INICIAL:
         $scope.direcionaTelaInicial = function () {
             window.location.replace('http://127.0.0.1:5500/app/component/TelaInicial/index.html')
         };
-
-        // CADASTRA A PESSOA NO FORMULÁRIO E ENVIA PARA O BANCO DE DADOS: 
-
-
+        // CADASTRA A PESSOA NO FORMULÁRIO E ENVIA PARA O BANCO DE DADOS:      
         $scope.cadastra_pessoa = function (isValid) {
             console.log(isValid)
             if (isValid) {
@@ -31,23 +28,15 @@ angular.module("soVamu", ["ngRoute"])
                 ).then(function (response) {
                     $scope.listaPessoas.push(response.data);
                     $scope.direcionaTelaInicial();
-                   
 
                 });
             } else {
                 console.error("formulario incorreto")
             }
 
-
         };
 
-
-
-
-
-
     });
-
 
 
 

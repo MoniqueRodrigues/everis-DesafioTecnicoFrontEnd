@@ -20,9 +20,6 @@
     <script src="../../lib/angular.js"></script>
     <script src="../../node_modules/angular-route/angular-route.js"></script>
     <script src="./indexController.js"></script>
-
-
-
 </head>
 
 <!-- PAGINA INICIAL -->
@@ -71,9 +68,9 @@
                 <td>{{pessoa.nome}}</td>
                 <td>{{pessoa.idade}}</td>
                 <td>{{pessoa.profissao}}</td>
-                <td>{{pessoa.cidade}}</td>
-                <td>{{pessoa.peso}}</td>
-                <td>{{pessoa.aniversario}}</td>
+                <td>{{pessoa.cidade.cidade}}</td>
+                <td>{{pessoa.peso}} kg</td>
+                <td>{{pessoa.aniversario |date:'dd/MM/yyyy'}}</td>
                 <!-- botao editar e apagar -->
                 <td>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -90,8 +87,6 @@
 
         </tbody>
     </table>
-
-
 </body>
 
 </html>
