@@ -9,9 +9,21 @@ angular.module("soVamu", ["ngRoute"])
         //PEGAR OBJETO CIDADES NO BANCO DE DADOS:
         $http.get("http://localhost:3000/cidade")
             .then(function (response) {
-                console.log('retorno', response)
+                console.log('retorno cidades', response)
                 $scope.cidades = response.data;
             });
+
+            
+
+        //PEGAR OBJETO PROFISSAO NO BANCO DE DADOS:
+        $http.get("http://localhost:3000/profissao")
+        .then(function (response) {
+            console.log('retorno profissoes', response)
+            $scope.profissoes = response.data;
+        });
+
+        
+
 
         //  //DIRECIONAR PARA A TELA DE INICIAL:
         $scope.direcionaTelaInicial = function () {

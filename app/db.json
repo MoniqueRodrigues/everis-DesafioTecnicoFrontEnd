@@ -1,27 +1,41 @@
 {
   "pessoa": [
     {
-      "idade": 4,
-      "profissao": "mmm",
-      "cidade": {
-        "cidade": "Rio de Janeiro",
-        "$$hashKey": "object:4"
-      },
-      "aniversario": "2211-02-01T03:00:00.000Z",
+      "idade": 3,
+      "profissao": "Desenvolvedor(a)",
+      "peso": "40",
+      "cidade": "São Paulo",
+      "aniversario": "1982-04-01T03:00:00.000Z",
       "nome": "mmm",
-      "peso": "40000",
       "id": 1
+    },
+    {
+      "profissao": "Desenvolvedor(a)",
+      "idade": 5,
+      "nome": "bbb",
+      "cidade": "São Paulo",
+      "peso": "45",
+      "aniversario": "+198255-04-01T03:00:00.000Z",
+      "id": 2
+    },
+    {
+      "nome": "teste",
+      "idade": 40,
+      "profissao": "Desenvolvedor(a)",
+      "cidade": "Rio de Janeiro",
+      "peso": "200.100",
+      "aniversario": "1982-01-01T03:00:00.000Z",
+      "id": 3
     }
   ],
   "cidade": [
-    {
-      "cidade": "São Paulo"
-    },
-    {
-      "cidade": "Rio de Janeiro"
-    },
-    {
-      "cidade": "Brasilia"
-    }
+    "São Paulo",
+    "Rio de Janeiro",
+    "Brasilia"
+  ],
+  "profissao": [
+    "Desenvolvedor(a)",
+    "Analista de Produto",
+    "Advogado(a)"
   ]
 }
