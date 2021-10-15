@@ -15,6 +15,7 @@
         crossorigin="anonymous"></script>
     <!-- css -->
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.modal.css">
 
     <!-- angular -->
     <script src="../../lib/angular.js"></script>
@@ -26,67 +27,85 @@
 
 <!-- <div ng-view></div> -->
 
-<body ng-controller="indexController">
+<body ng-controller="indexController" class="container-body">
 
     <!-- titulo -->
     <div class="titulo-container">
         <h4 class="titulo">{{titulo}}</h4>
     </div>
-    <!-- campo de busca -->
-    <div class="campo-busca">
-        <input class="busca" type="text" ng-model="busca">
 
-    </div>
+    <main class="container-principal">
 
-    <!-- botão de cadastrar -->
-    <div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button ng-click="direcionaTelaCadastro()" class="btn me-md-2 btn btn-outline-dark"
-                type="button">Cadastrar</button>
-
+        <!-- campo de busca -->
+        <div class="campo-busca">
+            <input class="busca" type="text" ng-model="busca">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
         </div>
 
-    </div>
-    <!-- tabela -->
-    <table class="table table-formList">
+        <!-- botão de cadastrar -->
+        <div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button ng-click="direcionaTelaCadastro()" class="btn me-md-2 btn btn-outline-dark"
+                    type="button">Cadastrar</button>
 
-        <thead class="cabecalho-formList">
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Idade</th>
-                <th scope="col">Profissão</th>
-                <th scope="col">Cidade de Nascimento</th>
-                <th scope="col">Peso</th>
-                <th scope="col">Aniversário</th>
-                <th scope="col"></th>
+            </div>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="pessoa in listaPessoas | filter:busca">
+        </div>
+        
+            <!-- tabela -->
+            <div class="table-responsive-sm">
+                <table class="table table-bordered table-striped table-lista">
 
-                <td>{{pessoa.nome}}</td>
-                <td>{{pessoa.idade}}</td>
-                <td>{{pessoa.profissao}}</td>
-                <td>{{pessoa.cidade}}</td>
-                <td>{{pessoa.peso}} kg</td>
-                <td>{{pessoa.aniversario |date:'dd/MM/yyyy'}}</td>
-                <!-- botao editar e apagar -->
-                <td>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <!-- <button ng-click="mostraPessoa(pessoa,$index)" class="btn btn-primary me-md-2" type="button">editar</button> -->
+                    <thead class="cabecalho-formList">
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Idade</th>
+                            <th scope="col">Profissão</th>
+                            <th scope="col">Cidade de Nascimento</th>
+                            <th scope="col">Peso</th>
+                            <th scope="col">Aniversário</th>
+                            <th scope="col"></th>
+    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="pessoa in listaPessoas | filter:busca">
+    
+                            <td>{{pessoa.nome}}</td>
+                            <td>{{pessoa.idade}}</td>
+                            <td>{{pessoa.profissao}}</td>
+                            <td>{{pessoa.cidade}}</td>
+                            <td>{{pessoa.peso}} kg</td>
+                            <td>{{pessoa.aniversario |date:'dd/MM/yyyy'}}</td>
+                            <!-- botao editar e apagar -->
+    
+                            
+                            <td>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end buttons-lista">                             
+    
+                                    <a href="http://127.0.0.1:5500/app/component/TelaDeEdicao/edicao.html"><button
+                                            class="btn-edit btn btn-outline-dark me-md-2"
+                                            ng-click="mostraPessoa(pessoa,$index)" type="button">editar</button></a>
+                                    <button ng-click="informaModalExcluir()" class=" btn btn-outline-dark btn-exclui" type="button"
+                                        data-bs-dismiss="modal">apagar</button>
+                                </div>
+                                <!--MODAL EXCLUIR -->
+                                <div ng-include="'modal-excluir.html'"></div>
+                            </td>
+                        </tr>
+    
+                    </tbody>
+                </table>
+            </div>
+           
+        
 
-                        <a href="http://127.0.0.1:5500/app/component/TelaDeEdicao/edicao.html"><button class="btn-edit btn btn-outline-dark me-md-2"
-                                ng-click="mostraPessoa(pessoa,$index)" type="button">editar</button></a>
-                        <button ng-click="informaModalExcluir()" class=" btn btn-outline-dark" type="button" data-bs-dismiss="modal">apagar</button>
-                    </div>
-                    <!--MODAL EXCLUIR -->
-                    <div ng-include="'modal-excluir.html'"></div>
-                </td>
-            </tr>
+    </main>
 
-        </tbody>
-    </table>
 </body>
 
 </html>

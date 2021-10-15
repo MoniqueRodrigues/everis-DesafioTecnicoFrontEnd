@@ -29,6 +29,7 @@ angular.module("soVamu", ["ngRoute"])
         $scope.direcionaTelaInicial = function () {
             window.location.replace('http://127.0.0.1:5500/app/component/TelaInicial/index.html')
         };
+        
         // CADASTRA A PESSOA NO FORMULÁRIO E ENVIA PARA O BANCO DE DADOS:      
         $scope.cadastra_pessoa = function (isValid) {
             console.log(isValid)

@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.titulo-cadastroDeUsuarios{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+}
+
+.bi-person-circle{
+    width: 50px;
+    height: 50px;
+    margin-left:110px;
+}
+
+.col{
+    margin-bottom: 40px;
+   
+}
+
+.container{
+    margin-top: 60px;
+}
+
+.form-control{
+    border: solid 1px black;
+
+}
+
+
+
+@media (max-width:375px) {
+
+.bi-person-circle{
+    margin-left: 23px;
+}
+
+}

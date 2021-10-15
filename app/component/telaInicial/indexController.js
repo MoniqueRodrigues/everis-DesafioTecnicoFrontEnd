@@ -23,13 +23,13 @@ angular.module("soVamu", ["ngRoute"])
         //GET PARA LISTAR PESSOA NA TABELA:
         $http.get("http://localhost:3000/pessoa")
             .then(function (response) {
-                console.log('retorno')
+                console.log('retorno', JSON.stringify(response.data))
                 $scope.listaPessoas = response.data;
 
             });
 
         // // VISUALIZA PRODUTO NA TELA DE EDIÇÃO:
-        $scope.mostraPessoa = function (pessoa, index) {           
+        $scope.mostraPessoa = function (pessoa, index) {
             localStorage.setItem("pessoa", JSON.stringify(pessoa));
             // direcionaTelaCadastro();
             
