@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../style-cadastro-edicao/style.css">
 
     <!-- jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script> -->
 
     <!-- angular -->
     <script src="../../lib/angular.js"></script>
@@ -45,13 +45,14 @@
                     <input type="text" id="nome" minlength="3" name="nome" ng-required="true" class="form-control"
                         placeholder="" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
                         ng-model="pessoa.nome" aria-label="">
-                    <div class ng-show="cadastraPessoa.nome.$invalid">"Digite no mínimo 3 caracteres"</div>
+                    <div class ng-show="cadastraPessoa.nome.$invalid && cadastraPessoa.nome.$dirty">"Digite no mínimo 3 caracteres"</div>
                 </div>
                 <div class="col">
                     <label for="number" class="form-label">Idade</label>
-                    <input type="number" id="number" min="1" pattern="[0-9]+$" ng-required="true" class="form-control"
+                    <input type="number" id="number" min="1" max="120" pattern="[0-9]+$" ng-required="true" class="form-control"
+                    
                         placeholder="" ng-model="pessoa.idade" name="idade" aria-label="">
-                    <div class ng-show="cadastraPessoa.idade.$invalid">"A idade deve ser igual ou superior a 1"</div>
+                    <div class ng-show="cadastraPessoa.idade.$invalid && cadastraPessoa.idade.$dirty ">"A idade deve ser igual ou superior a 1"</div>
                 </div>
             </div>
             <div class="row g-3 col-sm-10">
@@ -78,16 +79,15 @@
                     <label for="peso" class="form-label">Peso</label>
                     <input type="text" id="peso" ng-required="true" name="peso" ng-pattern="/^\d{1,3}\.\d{0,3}$/"
                         class="form-control" placeholder="" ng-model="pessoa.peso" name="peso" aria-label="">
-                    <div class ng-show="cadastraPessoa.peso.$invalid">"O peso deve ser preenchido com "."</div>
+                    <div class ng-show="cadastraPessoa.peso.$invalid && cadastraPessoa.peso.$dirty">"O peso deve ser preenchido com "."</div>
 
                 </div>
                 <div class="col">
                     <label for="aniversario" class="form-label">Aniversário</label>
                     <input type="date" id="aniversario" ng-required="true" name="aniversario"
-                   class="form-control"
-                   
+                   class="form-control"                   
                         placeholder="" ng-model="pessoa.aniversario">
-                    <div class ng-show="cadastraPessoa.aniversario.$invalid">"A data deve ser preenchida: 00/00/0000"
+                    <div class ng-show="cadastraPessoa.aniversario.$invalid && cadastraPessoa.aniversario.$dirty">"A data deve ser preenchida: 00/00/0000"
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ angular.module("soVamu", ["ngRoute"])
         //PEGAR OBJETO CIDADES NO BANCO DE DADOS:
         $http.get("http://localhost:3000/cidade")
             .then(function (response) {
-                console.log('retorno cidades', response)
+                // console.log('retorno cidades', response)
                 $scope.cidades = response.data;
             });
 
@@ -18,7 +18,7 @@ angular.module("soVamu", ["ngRoute"])
         //PEGAR OBJETO PROFISSAO NO BANCO DE DADOS:
         $http.get("http://localhost:3000/profissao")
         .then(function (response) {
-            console.log('retorno profissoes', response)
+            // console.log('retorno profissoes', response)
             $scope.profissoes = response.data;
         });
 
@@ -29,6 +29,8 @@ angular.module("soVamu", ["ngRoute"])
         $scope.direcionaTelaInicial = function () {
             window.location.replace('http://127.0.0.1:5500/app/component/TelaInicial/index.html')
         };
+
+
         
         // CADASTRA A PESSOA NO FORMULÁRIO E ENVIA PARA O BANCO DE DADOS:      
         $scope.cadastra_pessoa = function (isValid) {
