@@ -15,84 +15,90 @@
         crossorigin="anonymous"></script>
     <!-- css -->
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.modal.css">
 
     <!-- angular -->
     <script src="../../lib/angular.js"></script>
     <script src="../../node_modules/angular-route/angular-route.js"></script>
     <script src="./indexController.js"></script>
-
-
-
 </head>
 
 <!-- PAGINA INICIAL -->
 
-<div ng-view></div>
+<!-- <div ng-view></div> -->
 
-<body ng-controller="indexController">
+<body ng-controller="indexController" class="container-body">
 
     <!-- titulo -->
-    <div class="titulo-cadastroDeUsuarios">
-        <h4>{{titulo}}</h4>
-    </div>
-    <!-- campo de busca -->
-    <div class="campo-busca">
-        <input type="text" ng-model="busca">
-
+    <div class="titulo-container">
+        <h4 class="titulo">{{titulo}}</h4>
     </div>
 
-    <!-- botão de edição -->
-    <div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button ng-click="direcionaTelaCadastro()" class="btn btn-primary me-md-2" type="button">Cadastrar</button>
+    <main class="container-principal">
 
+        <!-- campo de busca -->
+        <div class="campo-busca">
+            <input class="busca" type="text" ng-model="busca">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
         </div>
 
-    </div>
-    <!-- tabela -->
-    <table class="table">
+        <!-- botão de cadastrar -->
+        <div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button ng-click="direcionaTelaCadastro()" class="btn me-md-2 btn btn-outline-dark"
+                    type="button">Cadastrar</button>
+            </div>
+        </div>
 
-        <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Idade</th>
-                <th scope="col">Profissão</th>
-                <th scope="col">Cidade de Nascimento</th>
-                <th scope="col">Peso</th>
-                <th scope="col">Aniversário</th>
-                <th scope="col"></th>
+        <!-- tabela -->
+        <div class="table-responsive-sm">
+            <table class="table table-bordered table-striped table-lista">
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="pessoa in listaPessoas | filter:busca">
+                <thead class="cabecalho-formList">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Idade</th>
+                        <th scope="col">Profissão</th>
+                        <th scope="col">Cidade de Nascimento</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Aniversário</th>
+                        <th scope="col"></th>
 
-                <td>{{pessoa.nome}}</td>
-                <td>{{pessoa.idade}}</td>
-                <td>{{pessoa.profissao}}</td>
-                <td>{{pessoa.cidade}}</td>
-                <td>{{pessoa.peso}}</td>
-                <td>{{pessoa.aniversario}}</td>
-                <!-- botao editar e apagar -->
-                <td>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <!-- <button ng-click="mostraPessoa(pessoa,$index)" class="btn btn-primary me-md-2" type="button">editar</button> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pessoa in listaPessoas | filter:busca">
 
-                        <a href="http://127.0.0.1:5500/app/component/TelaDeEdicao/edicao.html"><button
-                                ng-click="mostraPessoa(pessoa,$index)" class="btn btn-primary me-md-2"
-                                type="button">editar</button></a>
-                        <button ng-click="informaModalExcluir()" type="button" data-bs-dismiss="modal"
-                            class="btn btn-primary">apagar</button>
-                    </div>
-                    <!--MODAL EXCLUIR -->
-                    <div ng-include="'modal-excluir.html'"></div>
-                </td>
-            </tr>
+                        <td>{{pessoa.nome}}</td>
+                        <td>{{pessoa.idade}}</td>
+                        <td>{{pessoa.profissao}}</td>
+                        <td>{{pessoa.cidade}}</td>
+                        <td>{{pessoa.peso}} kg</td>
+                        <td>{{pessoa.aniversario |date:'dd/MM/yyyy'}}</td>
 
-        </tbody>
-    </table>
+                        <!-- botao editar e apagar -->
+                        <td>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end buttons-lista">
 
+                                <a href="http://127.0.0.1:5500/app/component/TelaDeEdicao/edicao.html"><button
+                                        class="btn-edit btn btn-outline-dark me-md-2"
+                                        ng-click="mostraPessoa(pessoa,$index)" type="button">editar</button></a>
+                                <button ng-click="informaModalExcluir(pessoa)" class=" btn btn-outline-dark btn-exclui"
+                                    type="button" data-bs-dismiss="modal">apagar</button>
+                                <!--MODAL EXCLUIR -->
+                                <div ng-include="'modal-excluir.html'"></div>
+                            </div>
+                        </td>
+                    </tr>
 
+                </tbody>
+            </table>
+        </div>
+    </main>
 </body>
 
 </html>

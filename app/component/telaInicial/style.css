@@ -1,4 +1,93 @@
-.table-overflow {
-    max-height:100px;
-    overflow-x:auto;
+*{
+    margin: 0;
+    padding: 0;
+    
 }
+
+    
+body{
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+   
+}
+
+.titulo-container{
+    margin-top:30px;   
+    
+}
+
+.container-principal{
+    margin: 40px;
+}
+
+
+.titulo{
+    text-align: center;
+}
+
+.busca{
+    border-radius:20px;
+    width: 500px;
+    padding-left: 40px
+}
+.bi-search{
+    position: relative;
+    right: 487px;
+    
+}
+
+
+/* TABELA */
+.table-lista{
+    margin-top: 100px;
+    border: black solid 1px;   
+
+}
+.cabecalho-formList{
+    border-top:1px solid black;
+    background-color: darkgray;
+}
+
+
+
+/* VERSÃO MOBILE */
+@media (max-width:375px) {  
+    
+.busca{
+    border-radius:20px;
+    width: 300px;
+    padding-left: 40px;
+}
+
+.bi-search{
+    position: relative;
+    right: 200px;  
+    
+}
+
+.d-grid{
+    margin-top: 40px;
+    width: 50px;
+    margin-left: 200px;
+}
+
+.buttons-lista{
+    margin:0 auto;     
+
+}
+.btn-exclui {
+    padding:4px;
+
+}
+.btn-edit{
+    padding:4px;
+    
+
+}
+.table-lista{
+    margin-top: 40px;
+}
+
+
+}
+

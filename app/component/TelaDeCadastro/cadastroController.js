@@ -4,19 +4,35 @@ angular.module("soVamu", ["ngRoute"])
         $scope.titulo = "Só Vamu Tech!";
         $scope.listaPessoas = [];
 
-        // $scope.pessoa = {
-        //     "nome":"",
-        //     "idade":0,
-        //     "profissao":"",
-        //     "cidade":"",
-        //     "peso": 0,
-        //     "aniversario":""
-        // }
+        //TELA DE CADASTRO//
+
+        //PEGAR OBJETO CIDADES NO BANCO DE DADOS:
+        $http.get("http://localhost:3000/cidade")
+            .then(function (response) {
+                // console.log('retorno cidades', response)
+                $scope.cidades = response.data;
+            });
+
+            
+
+        //PEGAR OBJETO PROFISSAO NO BANCO DE DADOS:
+        $http.get("http://localhost:3000/profissao")
+        .then(function (response) {
+            // console.log('retorno profissoes', response)
+            $scope.profissoes = response.data;
+        });
+
+        
 
 
-        // CADASTRA A PESSOA NO FORMULÁRIO E ENVIA PARA O BANCO DE DADOS: 
+        //  //DIRECIONAR PARA A TELA DE INICIAL:
+        $scope.direcionaTelaInicial = function () {
+            window.location.replace('http://127.0.0.1:5500/app/component/TelaInicial/index.html')
+        };
 
 
+        
+        // CADASTRA A PESSOA NO FORMULÁRIO E ENVIA PARA O BANCO DE DADOS:      
         $scope.cadastra_pessoa = function (isValid) {
             console.log(isValid)
             if (isValid) {
@@ -26,22 +42,16 @@ angular.module("soVamu", ["ngRoute"])
                     JSON.stringify($scope.pessoa)
                 ).then(function (response) {
                     $scope.listaPessoas.push(response.data);
-                    window.location.replace('http://127.0.0.1:5500/app/component/TelaInicial/index.html')
+                    $scope.direcionaTelaInicial();
+
                 });
             } else {
                 console.error("formulario incorreto")
             }
 
-
         };
 
-
-
-
-
-
     });
-
 
 
 
